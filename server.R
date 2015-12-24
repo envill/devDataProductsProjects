@@ -7,12 +7,10 @@ shinyServer(function(input, output) {
   })
   
   output$preImage <- renderImage({
-    # When input$n is 3, filename is ./images/image3.jpeg
     
     filename <- normalizePath(file.path('./www',
                                         paste(input$born, '.jpg', sep='')))
     
-    # Return a list containing the filename and alt text
     list(src = filename, width = 300, height = 350)
     
   }, deleteFile = FALSE)
